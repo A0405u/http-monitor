@@ -36,16 +36,43 @@ async function getInfo() {
         const fs = await si.fsSize();
 
         return {
-            temperature: temperature,
-            memory: memory,
-            os: os,
-            load: load,
-            processes: processes,
-            services: services,
-            fs: fs,
+            hostname: os.hostname,
+            temperature: temperature.main,
+            memory: [
+                parseFloat((memory.total / 1073741824.0).toFixed(2)),
+                parseFloat((memory.available / 1073741824.0).toFixed(2)),
+                parseFloat((memory.active / 1073741824.0).toFixed(2)),
+            ],
+            os: [
+                os.distro,
+                os.release
+            ],
+            load: parseFloat(load.currentLoad.toFixed(2)),
+            processes: {
+                all: processes.all,
+                running: processes.running,
+                sleeping: processes.sleeping,
+            },
+            // services: services,
+            fs: readFS(fs)
         };
     }
     catch(error) {
         console.error(error);
     }
+}
+
+function readFS(fs) {
+
+    array = [];
+    for (let device of fs) {
+        let parsed = [
+            device.fs,
+            device.size,
+            device.used,
+            device.available
+        ];
+        array.push(parsed);
+    } 
+    return array;
 }

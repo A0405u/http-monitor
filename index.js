@@ -8,8 +8,8 @@ const server = http.createServer(function (request, response) {
     if (request.method == "GET") receiveGet(request, response);
 });
 
-server.listen(port, host);
-console.log(`Listening at http://${host}:${port}`);
+server.listen(port);
+console.log(`Listening at port ${port}`);
 
 // Send all messages from file in response to GET
 async function receiveGet(request, response) {

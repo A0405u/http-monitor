@@ -21,7 +21,7 @@ async function receiveGet(request, response) {
         'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
     });
     response.end(JSON.stringify(await getInfo()));
-    console.log("Messages have been sent!");
+    console.log("Info has been sent!");
 }
 
 async function getInfo() {
@@ -59,6 +59,7 @@ async function getInfo() {
     }
     catch(error) {
         console.error(error);
+        return "";
     }
 }
 

@@ -1,0 +1,32 @@
+{
+  "name": "http-monitor",
+  "version": "1.0.0",
+  "description": "HTTP system infromation monitor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/A0405u/http-monitor.git"
+  },
+  "keywords": [
+    "cpu",
+    "system",
+    "monitor",
+    "information",
+    "http"
+  ],
+  "author": "a0405u",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/A0405u/http-monitor/issues"
+  },
+  "homepage": "https://github.com/A0405u/http-monitor#readme",
+  "dependencies": {
+    "systeminformation": "^5.21.22"
+  },
+  "optionalDependencies": {
+    "osx-temperature-sensor": "^1.0.8"
+  }
+}

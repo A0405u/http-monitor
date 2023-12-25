@@ -32,7 +32,7 @@ async function getInfo() {
         const memory = await si.mem();
         const load = await si.currentLoad();
         const processes = await si.processes();
-        const services = await si.services();
+        const services = await si.services('*');
         const fs = await si.fsSize();
 
         return {
